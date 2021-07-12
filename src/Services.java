@@ -26,23 +26,28 @@ public class Services {
 
 	public void userInteractionsToAddOrDeleteOrSearchForFile(DisplayUtil displayUtil, String rootPath) throws IOException {
 		displayUtil.operationsOfOptionB();
-		char operation = bufferedReader.readLine().charAt(0);
-		if (operation == '1') {
-			addAFileToRootDirectory(rootPath);
-			userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
-		} else if (operation == '2') {
-			deleteAFileFromRootDirectory(rootPath);
-			userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
-		} else if (operation == '3') {
-			searchForAFileInTheRootDirectory(rootPath);
-			userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
-		} else if (operation == '4') {
-			MainOptions.showMainOptions(displayUtil, rootPath);
-		} else {
+		String temp = bufferedReader.readLine();
+		if (temp.length() > 1) {
 			System.out.println("Enter Valid Options like 1 or 2 or 3 or 4");
 			userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
+		} else {
+			char operation = temp.charAt(0);
+			if (operation == '1') {
+				addAFileToRootDirectory(rootPath);
+				userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
+			} else if (operation == '2') {
+				deleteAFileFromRootDirectory(rootPath);
+				userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
+			} else if (operation == '3') {
+				searchForAFileInTheRootDirectory(rootPath);
+				userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
+			} else if (operation == '4') {
+				MainOptions.showMainOptions(displayUtil, rootPath);
+			} else {
+				System.out.println("Enter Valid Options like 1 or 2 or 3 or 4");
+				userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
+			}
 		}
-
 	}
 
 	public void addAFileToRootDirectory(String rootPath) throws IOException {
