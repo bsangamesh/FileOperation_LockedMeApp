@@ -28,7 +28,7 @@ public class Services {
 		displayUtil.operationsOfOptionB();
 		String temp = bufferedReader.readLine();
 		if (temp.length() > 1) {
-			System.out.println("Enter Valid Options like 1 or 2 or 3 or 4");
+			System.out.println("Enter Valid Options like 1 or 2 or 3 or 4 or 5");
 			userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
 		} else {
 			char operation = temp.charAt(0);
@@ -44,7 +44,7 @@ public class Services {
 			} else if (operation == '4') {
 				MainOptions.showMainOptions(displayUtil, rootPath);
 			} else {
-				System.out.println("Enter Valid Options like 1 or 2 or 3 or 4");
+				System.out.println("Enter Valid Options like 1 or 2 or 3 or 4 or 5");
 				userInteractionsToAddOrDeleteOrSearchForFile(displayUtil, rootPath);
 			}
 		}
@@ -59,7 +59,6 @@ public class Services {
 		} else {
 			System.out.println("File already exists.");
 		}
-
 	}
 
 
@@ -77,7 +76,6 @@ public class Services {
 		} else {
 			System.out.println("File Not Found(FNF)");
 		}
-
 	}
 	
 	public static void searchForAFileInTheRootDirectory(String rootPath) throws IOException {
@@ -86,8 +84,6 @@ public class Services {
 		File fileNameDirectory = new File(rootPath + "/" + fileName);
 		if (fileNameDirectory.exists()) {
 			System.out.println(fileName + " File is found in the Root Directory and the Content of the file is");
-			// Files.lines(fileNameDirectory.toPath()).filter(line -> !line.isEmpty())
-			// .forEach(System.out::println);
 			FileInputStream input = new FileInputStream(fileNameDirectory);
 			FileChannel channel = input.getChannel();
 			byte[] buffer = new byte[256 * 1024];
@@ -105,7 +101,6 @@ public class Services {
 		} else {
 			System.out.println(fileName + " File is not found in the Root Directory");
 		}
-
 	}
 
 
